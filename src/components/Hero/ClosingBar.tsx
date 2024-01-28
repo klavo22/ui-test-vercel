@@ -4,7 +4,7 @@ const ClosingBar = () => {
   return (
     <ClosingBarContainer>
       <StyledBar>
-        <BarText>MISSING IN</BarText>
+        <BarText>CLOSING IN</BarText>
       </StyledBar>
       <StyledBar right>
         <Triangle />
@@ -25,7 +25,15 @@ const ClosingBarContainer = styled.div`
 
   max-width: 1440px;
   width: 100%;
-  height: 42px;
+  height: 36px;
+
+  @media (min-width: 768px) {
+    height: 42px;
+  }
+
+  @media (min-width: 1080px) {
+    height: 56px;
+  }
 `;
 
 interface BarProps {

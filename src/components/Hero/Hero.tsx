@@ -1,13 +1,15 @@
 import styled from "styled-components";
-import heroImg from "src/assets/hero.png";
-import Header from "./Header";
+import heroImg from "src/assets/img/hero.png";
+import Header from "../Header/Header";
 import ClosingBar from "./ClosingBar";
+import HeroCard from "./HeroCard";
 
 const Hero = () => {
   return (
     <HeroContainer>
       <BackgroundImage src={heroImg} />
       <Header />
+      <HeroCard />
       <ClosingBar />
     </HeroContainer>
   );

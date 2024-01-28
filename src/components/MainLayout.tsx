@@ -13,10 +13,6 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
 };
 
 const LayoutContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
   width: 100%;
   height: 100%;
 `;
@@ -24,9 +20,11 @@ const LayoutContainer = styled.div`
 export const Layout = styled.div`
   max-width: 1100px;
   width: 96%;
+  height: 100%;
+  margin: auto;
 
   @media (min-width: 768px) {
-    width: 95%;
+    width: 93%;
   }
 
   @media (min-width: 920px) {
