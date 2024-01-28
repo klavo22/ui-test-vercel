@@ -1,7 +1,10 @@
+import Hero from "./components/Hero";
+import "./styles/app.css";
+
 function App() {
   return (
     <>
-      <div>Rule of thumb</div>
+      <Hero />
     </>
   );
 }
