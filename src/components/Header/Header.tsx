@@ -40,6 +40,7 @@ const HeaderContent = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   height: 43px;
   padding-top: 15px;
 
@@ -49,9 +50,9 @@ const HeaderContent = styled.div`
 `;
 
 const HeaderTitle = styled.h2`
+  color: white;
   font-size: 36px;
   font-weight: 400;
-  color: white;
 
   z-index: 100;
 
@@ -61,14 +62,15 @@ const HeaderTitle = styled.h2`
 `;
 
 const HamburgerMenuButton = styled.button`
+  margin-right: 10px;
+  border: 0;
+
+  background-color: transparent;
+  cursor: pointer;
+
   @media (min-width: 768px) {
     display: none;
   }
-
-  margin-right: 10px;
-  background-color: transparent;
-  border: 0;
-  cursor: pointer;
 `;
 
 export default Header;

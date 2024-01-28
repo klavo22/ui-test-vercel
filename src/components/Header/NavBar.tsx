@@ -22,6 +22,7 @@ const NavBarWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   gap: 25px;
+
   margin-top: 10px;
 
   @media (max-width: 768px) {
@@ -30,20 +31,22 @@ const NavBarWrapper = styled.div`
 `;
 
 const NavBarItem = styled.a`
+  align-self: center;
+  height: 21px;
+
   color: white;
   font-size: 18px;
   font-weight: 300;
-  height: 21px;
-  align-self: center;
+
   text-decoration: none;
 `;
 
 const SearchButton = styled.button`
   width: 36px;
   height: 36px;
-  background: transparent;
   border: 0;
 
+  background: transparent;
   cursor: pointer;
 `;
 

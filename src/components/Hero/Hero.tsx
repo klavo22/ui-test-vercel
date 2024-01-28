@@ -16,10 +16,11 @@ const Hero = () => {
 };
 
 const HeroContainer = styled.div`
+  position: relative;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative;
   width: 100vw;
 `;
 
@@ -28,6 +29,7 @@ const BackgroundImage = styled.img`
   max-width: 1440px;
   max-height: 700px;
   min-height: 418px;
+
   object-fit: cover;
   z-index: -10;
 `;
