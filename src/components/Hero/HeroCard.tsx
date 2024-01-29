@@ -11,20 +11,20 @@ const HeroCard = () => {
     <HeroCardWrapper>
       <MainLayout>
         <HeroCardContent>
-          <CardMessage>What's your opinion on</CardMessage>
+          <CardText>What's your opinion on</CardText>
           <CardTitle>Pope Francis?</CardTitle>
-          <CardMessage big>
+          <CardText $big>
             He’s talking tough on clergy sexual abuse, or is he just another
             pervert protector? (thumbs down) or a true pedophile punishing
             pontiff? (thumbs up)
-          </CardMessage>
+          </CardText>
           <MoreInfo>
             <Wikipedia />
-            <CardMessage>More information</CardMessage>
+            <CardText>More information</CardText>
           </MoreInfo>
-          <CardMessage bold>What's your veredict?</CardMessage>
+          <CardText $bold>What's your veredict?</CardText>
           <ButtonsContainer>
-            <VoteButton positive>
+            <VoteButton $positive>
               <ThumbsUp height="50%" />
             </VoteButton>
             <VoteButton>
@@ -50,41 +50,42 @@ const HeroCardContent = styled.div`
   position: relative;
   top: 50%;
   transform: translateY(-50%);
+
   display: flex;
   flex-direction: column;
   width: 50%;
   max-width: 550px;
   height: 60%;
   max-height: 474px;
-  color: white;
   padding: 20px;
 
+  color: white;
   backdrop-filter: blur(20px) brightness(0.8);
   z-index: 100;
 `;
 
-interface CardMessageProps {
-  big?: boolean;
-  bold?: boolean;
+interface CardTextProps {
+  $big?: boolean;
+  $bold?: boolean;
 }
 
-const CardMessage = styled.p<CardMessageProps>`
-  font-size: ${({ big }) => (big ? "14px" : "12px")};
-  font-weight: ${({ bold }) => (bold ? "600" : "300")};
+const CardText = styled.p<CardTextProps>`
+  font-size: ${({ $big }) => ($big ? "14px" : "12px")};
+  font-weight: ${({ $bold }) => ($bold ? "600" : "300")};
 
   @media (min-width: 768px) {
-    font-size: ${({ big }) => (big ? "18px" : "14px")};
+    font-size: ${({ $big }) => ($big ? "18px" : "14px")};
   }
 
   @media (min-width: 1000px) {
-    font-size: ${({ big }) => (big ? "24px" : "18px")};
+    font-size: ${({ $big }) => ($big ? "24px" : "18px")};
   }
 `;
 
 const CardTitle = styled.h2`
-  font-size: 28px;
-  weight: 400;
   margin-bottom: 6px;
+
+  font-size: 28px;
 
   @media (min-width: 768px) {
     margin-bottom: 12px;
@@ -107,6 +108,7 @@ const ButtonsContainer = styled.div`
   position: absolute;
   bottom: 0;
   left: 0;
+
   display: flex;
   width: 100%;
   height: 40px;
@@ -121,14 +123,15 @@ const ButtonsContainer = styled.div`
 `;
 
 interface VoteButtonProps {
-  positive?: boolean;
+  $positive?: boolean;
 }
 
 const VoteButton = styled.button<VoteButtonProps>`
   width: 50%;
   border: 0;
-  background-color: ${({ positive, theme }) =>
-    positive ? theme.colors.verdigris : theme.colors.brightYellow};
+
+  background-color: ${({ $positive, theme }) =>
+    $positive ? theme.colors.verdigris : theme.colors.brightYellow};
   opacity: 0.7;
 
   &:hover {

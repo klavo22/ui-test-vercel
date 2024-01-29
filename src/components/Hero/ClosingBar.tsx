@@ -6,12 +6,12 @@ const ClosingBar = () => {
       <StyledBar>
         <BarText>CLOSING IN</BarText>
       </StyledBar>
-      <StyledBar right>
+      <StyledBar $right>
         <Triangle />
-        <BarText dark bold>
+        <BarText $dark $bold>
           22
         </BarText>
-        <BarText dark>Days</BarText>
+        <BarText $dark>Days</BarText>
       </StyledBar>
     </ClosingBarContainer>
   );
@@ -23,8 +23,8 @@ const ClosingBarContainer = styled.div`
 
   display: flex;
 
-  max-width: 1440px;
   width: 100%;
+  max-width: 1440px;
   height: 36px;
 
   @media (min-width: 768px) {
@@ -37,31 +37,32 @@ const ClosingBarContainer = styled.div`
 `;
 
 interface BarProps {
-  right?: boolean;
+  $right?: boolean;
 }
 
 const StyledBar = styled.div<BarProps>`
   position: relative;
+
   display: flex;
-  justify-content: ${({ right }) => (right ? "flex-start" : "flex-end")};
+  justify-content: ${({ $right }) => ($right ? "flex-start" : "flex-end")};
   align-items: center;
-  width: ${({ right }) => (right ? "70%" : "30%")};
+  width: ${({ $right }) => ($right ? "70%" : "30%")};
   height: 100%;
   padding-right: 10px;
 
-  background: ${({ right }) => (right ? "white" : "black")};
+  background: ${({ $right }) => ($right ? "white" : "black")};
   opacity: 0.4;
 `;
 
 interface BarTextProps {
-  dark?: boolean;
-  bold?: boolean;
+  $dark?: boolean;
+  $bold?: boolean;
 }
 
 const BarText = styled.span<BarTextProps>`
   font-size: 14px;
-  font-weight: ${({ bold }) => (bold ? "600" : "400")};
-  color: ${({ dark }) => (dark ? "black" : "white")};
+  font-weight: ${({ $bold }) => ($bold ? "600" : "400")};
+  color: ${({ $dark }) => ($dark ? "black" : "white")};
 `;
 
 const Triangle = styled.div`

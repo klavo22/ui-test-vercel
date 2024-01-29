@@ -18,8 +18,8 @@ const LayoutContainer = styled.div`
 `;
 
 export const Layout = styled.div`
-  max-width: 1100px;
   width: 96%;
+  max-width: 1100px;
   height: 100%;
   margin: auto;
 
