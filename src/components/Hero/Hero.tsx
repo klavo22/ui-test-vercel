@@ -22,6 +22,7 @@ const HeroContainer = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100vw;
+  margin-bottom: 36px;
 `;
 
 const BackgroundImage = styled.img`
