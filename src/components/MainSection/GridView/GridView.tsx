@@ -8,7 +8,6 @@ interface GridViewProps {
 }
 
 const GridView: React.FC<GridViewProps> = ({ rulings, updateVotes }) => {
-  console.log(updateVotes);
   return (
     <GridViewContainer>
       {rulings.map((ruling, index) => (

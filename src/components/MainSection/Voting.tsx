@@ -21,7 +21,6 @@ const Voting: React.FC<VotingProps> = ({ ruling, updateVotes, card }) => {
   const timeFromNow = getTimeAgo(new Date(lastUpdated));
 
   const voteNowClickhandler = () => {
-    console.log(updateVotes);
     if (voteStatus === "confirmed") {
       setVoteStatus(null);
     } else {

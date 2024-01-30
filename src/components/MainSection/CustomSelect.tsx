@@ -68,6 +68,10 @@ const SelectWrapper = styled.div`
   cursor: pointer;
   z-index: 200;
 
+  @media (max-width: 550px) {
+    display: none;
+  }
+
   @media (min-width: 920px) {
     width: 173px;
     height: 36px;
@@ -98,6 +102,10 @@ const Option = styled.div<OptionProps>`
 
   &:hover {
     filter: ${({ $selected }) => ($selected ? "1" : "brightness(0.85)")};
+  }
+
+  @media (max-width: 920px) {
+    top: ${({ $index }) => ($index !== undefined ? ($index + 1) * 28 : 0)}px;
   }
 `;
 
