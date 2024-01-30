@@ -1,6 +1,6 @@
 import { Ruling, UpdateVotesFunction } from "src/types";
 import styled from "styled-components";
-import GridItem from "./GridItem";
+import RulingCard from "../RulingCard";
 
 interface GridViewProps {
   rulings: Ruling[];
@@ -11,7 +11,7 @@ const GridView: React.FC<GridViewProps> = ({ rulings, updateVotes }) => {
   return (
     <GridViewContainer>
       {rulings.map((ruling, index) => (
-        <GridItem ruling={ruling} key={index} updateVotes={updateVotes} />
+        <RulingCard ruling={ruling} key={index} updateVotes={updateVotes} />
       ))}
     </GridViewContainer>
   );
@@ -19,11 +19,10 @@ const GridView: React.FC<GridViewProps> = ({ rulings, updateVotes }) => {
 
 const GridViewContainer = styled.div`
   grid-template-columns: 1fr 1fr;
-  gap: 2%;
+  gap: 15px;
 
   display: grid;
   width: 100%;
-  margin-bottom: 50px;
 
   @media (min-width: 920px) {
     grid-template-columns: 1fr 1fr 1fr;
