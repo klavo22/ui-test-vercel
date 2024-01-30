@@ -60,9 +60,17 @@ interface BarTextProps {
 }
 
 const BarText = styled.span<BarTextProps>`
-  font-size: 14px;
-  font-weight: ${({ $bold }) => ($bold ? "600" : "400")};
+  font-size: 12px;
+  font-weight: ${({ $bold }) => ($bold ? "600" : "300")};
   color: ${({ $dark }) => ($dark ? "black" : "white")};
+
+  @media (min-width: 768px) {
+    font-size: 14px;
+  }
+
+  @media (min-width: 1080px) {
+    font-size: 24px;
+  }
 `;
 
 const Triangle = styled.div`

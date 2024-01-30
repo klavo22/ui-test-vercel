@@ -62,6 +62,10 @@ const HeroCardContent = styled.div`
   color: white;
   backdrop-filter: blur(20px) brightness(0.8);
   z-index: 100;
+
+  @media (max-width: 768px) {
+    padding: 12px;
+  }
 `;
 
 interface CardTextProps {
@@ -72,6 +76,12 @@ interface CardTextProps {
 const CardText = styled.p<CardTextProps>`
   font-size: ${({ $big }) => ($big ? "14px" : "12px")};
   font-weight: ${({ $bold }) => ($bold ? "600" : "300")};
+
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  text-overflow: ellipsis;
 
   @media (min-width: 768px) {
     font-size: ${({ $big }) => ($big ? "18px" : "14px")};
@@ -85,7 +95,12 @@ const CardText = styled.p<CardTextProps>`
 const CardTitle = styled.h2`
   margin-bottom: 6px;
 
-  font-size: 28px;
+  font-size: 25px;
+
+  @media (min-width: 382px) {
+    margin-bottom: 8px;
+    font-size: 30px;
+  }
 
   @media (min-width: 768px) {
     margin-bottom: 12px;
