@@ -13,7 +13,7 @@ const MainSection = () => {
   const { rulings, updateVotes } = useRulings();
 
   return (
-    <>
+    <MainSectionWrapper>
       <SectionHeader>
         <Title>Previous Rulings</Title>
         <CustomSelect selected={selected} setSelected={setSelected} />
@@ -26,9 +26,13 @@ const MainSection = () => {
         )}
       </SectionWrapper>
       <Carousel rulings={rulings} updateVotes={updateVotes} />
-    </>
+    </MainSectionWrapper>
   );
 };
+
+const MainSectionWrapper = styled.div`
+  width: 100%;
+`;
 
 const SectionHeader = styled.div`
   position: relative;

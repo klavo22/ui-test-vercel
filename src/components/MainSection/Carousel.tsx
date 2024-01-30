@@ -1,6 +1,6 @@
 import { Ruling, UpdateVotesFunction } from "src/types";
 import styled from "styled-components";
-import GridItem from "./GridView/GridItem";
+import RulingCard from "./RulingCard";
 
 interface CarouselProps {
   rulings: Ruling[];
@@ -11,7 +11,7 @@ const Carousel: React.FC<CarouselProps> = ({ rulings, updateVotes }) => {
   return (
     <CarouselContainer>
       {rulings.map((ruling, index) => (
-        <GridItem key={index} ruling={ruling} updateVotes={updateVotes} />
+        <RulingCard key={index} ruling={ruling} updateVotes={updateVotes} />
       ))}
     </CarouselContainer>
   );

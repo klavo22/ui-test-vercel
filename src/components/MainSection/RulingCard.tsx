@@ -1,18 +1,18 @@
 import { baseImgUrl } from "src/components/constants";
 import { Ruling, UpdateVotesFunction } from "src/types";
 import styled from "styled-components";
-import GaugeBar from "../GaugeBar";
-import Voting from "../Voting";
-import ResultIcon from "../ResultIcon";
+import GaugeBar from "./GaugeBar";
+import Voting from "./Voting";
+import ResultIcon from "./ResultIcon";
 
-interface GridItemProps {
+interface RulingCardProps {
   ruling: Ruling;
   updateVotes: UpdateVotesFunction;
 }
 
-const GridItem: React.FC<GridItemProps> = ({ ruling, updateVotes }) => {
+const RulingCard: React.FC<RulingCardProps> = ({ ruling, updateVotes }) => {
   return (
-    <GridItemContainer $imageUrl={ruling.picture}>
+    <RulingCardContainer $imageUrl={ruling.picture}>
       <GradientLayer />
       <CardInfoWrapper>
         <TitleWrapper>
@@ -25,15 +25,15 @@ const GridItem: React.FC<GridItemProps> = ({ ruling, updateVotes }) => {
         <Voting ruling={ruling} updateVotes={updateVotes} card />
       </VotingWrapper>
       <GaugeBar votes={ruling.votes} card />
-    </GridItemContainer>
+    </RulingCardContainer>
   );
 };
 
-interface GridItemContainerProps {
+interface RulingCardContainerProps {
   $imageUrl: string;
 }
 
-const GridItemContainer = styled.div<GridItemContainerProps>`
+const RulingCardContainer = styled.div<RulingCardContainerProps>`
   position: relative;
   box-sizing: border-box;
   aspect-ratio: 1;
@@ -114,4 +114,4 @@ const VotingWrapper = styled.div`
   z-index: 100;
 `;
 
-export default GridItem;
+export default RulingCard;

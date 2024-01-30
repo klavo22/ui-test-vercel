@@ -8,4 +8,10 @@ export const menuOptions = [
   { title: "Login / Sign Up" },
 ];
 
+export const footerLinks = [
+  { title: "Terms and Conditions" },
+  { title: "Privacy Policy" },
+  { title: "Contact Us" },
+];
+
 export const baseImgUrl = "src/assets/img/";
