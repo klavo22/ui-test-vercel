@@ -7,3 +7,5 @@ export const menuOptions = [
   },
   { title: "Login / Sign Up" },
 ];
+
+export const baseImgUrl = "src/assets/img/";
