@@ -87,7 +87,7 @@ const CardText = styled.p<CardTextProps>`
     font-size: ${({ $big }) => ($big ? "18px" : "14px")};
   }
 
-  @media (min-width: 1000px) {
+  @media (min-width: 1080px) {
     font-size: ${({ $big }) => ($big ? "24px" : "18px")};
   }
 `;
@@ -107,7 +107,7 @@ const CardTitle = styled.h2`
     font-size: 40px;
   }
 
-  @media (min-width: 1000px) {
+  @media (min-width: 1080px) {
     margin-bottom: 20px;
     font-size: 54px;
   }

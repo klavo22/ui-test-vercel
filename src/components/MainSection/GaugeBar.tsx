@@ -6,33 +6,42 @@ import ThumbsDown from "src/assets/img/thumbsDown.svg?react";
 
 interface GaugeBarProps {
   votes: Votes;
+  card?: boolean;
 }
 
-const GaugeBar: React.FC<GaugeBarProps> = ({ votes }) => {
+const GaugeBar: React.FC<GaugeBarProps> = ({ votes, card }) => {
   const { positive, negative } = votes;
   const totalVotes = positive + negative;
   const percentagePositive = (positive / totalVotes) * 100;
   const percentageNegative = (negative / totalVotes) * 100;
 
+  const iconSize = card
+    ? { width: "15px", height: "15px" }
+    : { width: "22px", height: "22px" };
+
   return (
-    <GaugeBarContainer>
+    <GaugeBarContainer $card={card}>
       <Bar $positive $percentage={percentagePositive}>
         <InfoWrapper>
-          <ThumbsUp width="22px" height="22px" />
-          <BarValue>{percentagePositive.toFixed(1)}%</BarValue>
+          <ThumbsUp {...iconSize} />
+          <BarValue $card>{percentagePositive.toFixed(1)}%</BarValue>
         </InfoWrapper>
       </Bar>
       <Bar $percentage={percentageNegative}>
         <InfoWrapper $right>
-          <BarValue>{percentageNegative.toFixed(1)}%</BarValue>
-          <ThumbsDown width="22px" height="22px" />
+          <BarValue $card>{percentageNegative.toFixed(1)}%</BarValue>
+          <ThumbsDown {...iconSize} />
         </InfoWrapper>
       </Bar>
     </GaugeBarContainer>
   );
 };
 
-const GaugeBarContainer = styled.div`
+interface GaugeBarElementProps {
+  $card?: boolean;
+}
+
+const GaugeBarContainer = styled.div<GaugeBarElementProps>`
   position: absolute;
   bottom: 0;
 
@@ -41,7 +50,7 @@ const GaugeBarContainer = styled.div`
   height: 36px;
 
   @media (min-width: 1080px) {
-    height: 54px;
+    height: ${({ $card }) => ($card ? "36px" : "54px")};
   }
 `;
 
@@ -80,12 +89,12 @@ const InfoWrapper = styled.div<InfoWrapperProps>`
   gap: 10px;
 `;
 
-const BarValue = styled.span`
+const BarValue = styled.span<GaugeBarElementProps>`
   color: white;
   font-size: 18px;
 
   @media (min-width: 1080px) {
-    font-size: 27px;
+    font-size: ${({ $card }) => ($card ? "18px" : "27px")};
   }
 `;
 
