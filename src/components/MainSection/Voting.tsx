@@ -9,17 +9,19 @@ import { Ruling, UpdateVotesFunction, VoteType } from "src/types";
 interface VotingProps {
   ruling: Ruling;
   updateVotes: UpdateVotesFunction;
+  card?: boolean;
 }
 
 type VoteStatus = VoteType | "confirmed";
 
-const Voting: React.FC<VotingProps> = ({ ruling, updateVotes }) => {
+const Voting: React.FC<VotingProps> = ({ ruling, updateVotes, card }) => {
   const [voteStatus, setVoteStatus] = useState<VoteStatus | null>(null);
 
   const { name, lastUpdated, category } = ruling;
   const timeFromNow = getTimeAgo(new Date(lastUpdated));
 
   const voteNowClickhandler = () => {
+    console.log(updateVotes);
     if (voteStatus === "confirmed") {
       setVoteStatus(null);
     } else {
@@ -38,7 +40,7 @@ const Voting: React.FC<VotingProps> = ({ ruling, updateVotes }) => {
 
   return (
     <VotingWrapper>
-      <LastUpdateInfo>{getHairlineMessage()}</LastUpdateInfo>
+      <HairlineMessage $card={card}>{getHairlineMessage()}</HairlineMessage>
       <ActionsWrapper>
         {voteStatus !== "confirmed" && (
           <>
@@ -65,14 +67,16 @@ const VotingWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  height: 80%;
-  margin-left: 30px;
 `;
 
-const LastUpdateInfo = styled.span`
-  height: 35%;
+interface HairlineMessageProps {
+  $card?: boolean;
+}
 
-  font-size: 15px;
+const HairlineMessage = styled.span<HairlineMessageProps>`
+  margin-bottom: 12px;
+
+  font-size: ${({ $card }) => ($card ? "12px" : "15px")};
   color: white;
   white-space: nowrap;
 `;
@@ -108,8 +112,8 @@ const VoteNowButton = styled.button<VoteNowButtonProps>`
   border: 1px solid white;
 
   color: white;
-  background-color: black;
-  opacity: ${({ disabled }) => (disabled ? "0.6" : "1")};
+  background-color: ${({ disabled }) =>
+    disabled ? "rgba(48, 48, 48, 0.6)" : "black"};
 
   cursor: pointer;
 `;

@@ -61,10 +61,17 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
 
 const SelectWrapper = styled.div`
   position: relative;
-  width: 173px;
+
+  width: 131px;
+  height: 28px;
 
   cursor: pointer;
   z-index: 200;
+
+  @media (min-width: 920px) {
+    width: 173px;
+    height: 36px;
+  }
 `;
 
 interface OptionProps {
@@ -74,13 +81,15 @@ interface OptionProps {
 
 const Option = styled.div<OptionProps>`
   position: absolute;
-  top: ${({ $index }) => $index !== undefined && ($index + 1) * 36}px;
+  top: ${({ $index }) => ($index !== undefined ? ($index + 1) * 36 : 0)}px;
+  right: 10px;
 
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 173px;
-  height: 36px;
+  width: 100%;
+  height: 100%;
+
   border: 2px solid black;
 
   background-color: white;
@@ -94,7 +103,8 @@ const Option = styled.div<OptionProps>`
 
 const ArrowWrapper = styled.div`
   position: absolute;
-  top: 8px;
+  top: 50%;
+  transform: translateY(-150%);
   right: 15px;
   width: 12px;
   height: 7px;

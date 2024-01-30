@@ -5,9 +5,10 @@ import ListView from "./ListView";
 import CustomSelect from "./CustomSelect";
 import { ViewMode } from "src/types";
 import { useRulings } from "src/hooks/useRulings";
+import GridView from "./GridView";
 
 const MainSection = () => {
-  const [selected, setSelected] = useState<ViewMode>(ViewMode.List);
+  const [selected, setSelected] = useState<ViewMode>(ViewMode.Grid);
   const { rulings, updateVotes } = useRulings();
 
   return (
@@ -16,7 +17,9 @@ const MainSection = () => {
         <Title>Previous Rulings</Title>
         <CustomSelect selected={selected} setSelected={setSelected} />
       </SectionHeader>
-      {selected === ViewMode.List && (
+      {selected === ViewMode.Grid ? (
+        <GridView rulings={rulings} updateVotes={updateVotes} />
+      ) : (
         <ListView rulings={rulings} updateVotes={updateVotes} />
       )}
     </>
@@ -24,16 +27,21 @@ const MainSection = () => {
 };
 
 const SectionHeader = styled.div`
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  margin-bottom: 36px;
+  margin-bottom: 25px;
 `;
 
 const Title = styled.h2`
-  font-size: 45px;
+  font-size: 30px;
   font-weight: 300;
+
+  @media (min-width: 920px) {
+    font-size: 45px;
+  }
 `;
 
 export default MainSection;
