@@ -32,7 +32,7 @@ interface ResultIconWrapperProps {
 }
 
 const ResultIconWrapper = styled.div<ResultIconWrapperProps>`
-  position: absolute;
+  position: ${({ $big }) => ($big ? "absolute" : "")};
   top: 0;
   left: 0;
 

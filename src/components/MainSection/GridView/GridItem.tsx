@@ -15,8 +15,10 @@ const GridItem: React.FC<GridItemProps> = ({ ruling, updateVotes }) => {
     <GridItemContainer $imageUrl={ruling.picture}>
       <GradientLayer />
       <CardInfoWrapper>
-        <ResultIcon votes={ruling.votes} />
-        <CardInfoTitle>{ruling.name}</CardInfoTitle>
+        <TitleWrapper>
+          <ResultIcon votes={ruling.votes} />
+          <CardInfoTitle>{ruling.name}</CardInfoTitle>
+        </TitleWrapper>
         <CardDescription>{ruling.description}</CardDescription>
       </CardInfoWrapper>
       <VotingWrapper>
@@ -67,16 +69,20 @@ const CardInfoWrapper = styled.div`
 
   display: flex;
   flex-direction: column;
-  padding: 0 36px;
 
   color: white;
   z-index: 100;
 `;
 
+const TitleWrapper = styled.div`
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+`;
+
 const CardInfoTitle = styled.h3`
   display: -webkit-box;
   max-width: 200px;
-  margin-bottom: 7px;
 
   font-size: 25px;
   font-weight: 400;
@@ -96,6 +102,7 @@ const CardDescription = styled.p`
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  margin: 7px 0 0 40px;
 
   font-size: 15px;
   font-weight: 300;
