@@ -9,7 +9,9 @@ const Footer: React.FC = () => {
     <FooterContainer>
       <FooterLinks>
         {footerLinks.map((footerLink, index) => (
-          <FooterLink key={index}>{footerLink.title}</FooterLink>
+          <FooterLink href="#" key={index}>
+            {footerLink.title}
+          </FooterLink>
         ))}
       </FooterLinks>
       <SocialLinks>
@@ -53,6 +55,8 @@ const FooterLinks = styled.div`
 const FooterLink = styled.a`
   font-size: 18px;
   font-weight: 300;
+
+  text-decoration: none;
 
   @media (max-width: 660px) {
     font-size: 15px;
