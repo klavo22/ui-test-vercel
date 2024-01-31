@@ -6,7 +6,7 @@ import ThumbsDown from "src/assets/img/thumbsDown.svg?react";
 import { getTimeAgo } from "src/components/utils/dateUtils";
 import { Ruling, UpdateVotesFunction, VoteType } from "src/types";
 
-interface VotingProps {
+interface VoteSectionProps {
   ruling: Ruling;
   updateVotes: UpdateVotesFunction;
   card?: boolean;
@@ -14,7 +14,11 @@ interface VotingProps {
 
 type VoteStatus = VoteType | "confirmed";
 
-const Voting: React.FC<VotingProps> = ({ ruling, updateVotes, card }) => {
+const VoteSection: React.FC<VoteSectionProps> = ({
+  ruling,
+  updateVotes,
+  card,
+}) => {
   const [voteStatus, setVoteStatus] = useState<VoteStatus | null>(null);
 
   const { name, lastUpdated, category } = ruling;
@@ -38,31 +42,31 @@ const Voting: React.FC<VotingProps> = ({ ruling, updateVotes, card }) => {
   };
 
   return (
-    <VotingWrapper>
+    <VoteSectionWrapper>
       <HairlineMessage $card={card}>{getHairlineMessage()}</HairlineMessage>
       <ActionsWrapper>
         {voteStatus !== "confirmed" && (
           <>
-            <VoteButton
+            <ThumbButton
               $positive
               onClick={() => setVoteStatus(VoteType.Positive)}
             >
               <ThumbsUp height="16px" width="16px" />
-            </VoteButton>
-            <VoteButton onClick={() => setVoteStatus(VoteType.Negative)}>
+            </ThumbButton>
+            <ThumbButton onClick={() => setVoteStatus(VoteType.Negative)}>
               <ThumbsDown height="16px" width="16px" />
-            </VoteButton>
+            </ThumbButton>
           </>
         )}
-        <VoteNowButton disabled={!voteStatus} onClick={voteNowClickhandler}>
+        <VoteButton disabled={!voteStatus} onClick={voteNowClickhandler}>
           {voteStatus === "confirmed" ? "Vote Again" : "Vote Now"}
-        </VoteNowButton>
+        </VoteButton>
       </ActionsWrapper>
-    </VotingWrapper>
+    </VoteSectionWrapper>
   );
 };
 
-const VotingWrapper = styled.div`
+const VoteSectionWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -86,11 +90,11 @@ const ActionsWrapper = styled.div`
   gap: 12px;
 `;
 
-interface VoteButtonProps {
+interface ThumbButtonProps {
   $positive?: boolean;
 }
 
-const VoteButton = styled.button<VoteButtonProps>`
+const ThumbButton = styled.button<ThumbButtonProps>`
   width: 30px;
   height: 30px;
   border: none;
@@ -101,20 +105,20 @@ const VoteButton = styled.button<VoteButtonProps>`
   cursor: pointer;
 `;
 
-interface VoteNowButtonProps {
+interface VoteButtonProps {
   disabled: boolean;
 }
 
-const VoteNowButton = styled.button<VoteNowButtonProps>`
+const VoteButton = styled.button<VoteButtonProps>`
   width: 107px;
   height: 38px;
-  border: 1px solid white;
+  border: ${({ disabled }) => (disabled ? "0" : "1px solid white")};
 
-  color: white;
+  color: ${({ disabled }) => (disabled ? "gray" : "white")};
   background-color: ${({ disabled }) =>
-    disabled ? "rgba(48, 48, 48, 0.6)" : "black"};
+    disabled ? "rgba(48, 48, 48, 0.6)" : "rgba(0, 0, 0, 0.5)"};
 
   cursor: pointer;
 `;
 
-export default Voting;
+export default VoteSection;

@@ -1,6 +1,6 @@
 import { Ruling, UpdateVotesFunction } from "src/types";
 import styled from "styled-components";
-import RulingCard from "../RulingCard";
+import RulingCard from "./RulingCard";
 
 interface GridViewProps {
   rulings: Ruling[];

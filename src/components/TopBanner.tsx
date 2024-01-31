@@ -77,8 +77,9 @@ const BannerText = styled.span<BannerTextProps>`
 const CloseButton = styled.button`
   width: 20px;
   height: 20px;
-
   border: 0;
+
+  cursor: pointer;
 
   @media (max-width: 768px) {
     display: none;

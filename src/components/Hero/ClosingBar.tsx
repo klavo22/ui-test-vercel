@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
-const ClosingBar = () => {
+const ClosingBar: React.FC = () => {
   return (
     <ClosingBarContainer>
       <StyledBar>
         <BarText>CLOSING IN</BarText>
       </StyledBar>
       <StyledBar $right>
-        <Triangle />
+        <RightArrow />
         <BarText $dark $bold>
           22
         </BarText>
@@ -73,7 +73,7 @@ const BarText = styled.span<BarTextProps>`
   }
 `;
 
-const Triangle = styled.div`
+const RightArrow = styled.div`
   position: relative;
   width: 0;
   height: 0;

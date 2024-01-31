@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import backgroundPeople from "src/assets/img/bg-people.png";
 
-const BottomBanner = () => {
+const BottomBanner: React.FC = () => {
   return (
     <BannerContainer>
       <BannerContent>
@@ -20,13 +20,15 @@ const BannerContainer = styled.div`
   min-height: 108px;
   margin: 24px 0;
 
-  font-size: 21px;
+  color: rgba(70, 70, 70, 1);
+  font-size: 27px;
   background-image: url(${backgroundPeople});
   background-size: cover;
   background-position: center;
 
   @media (max-width: 768px) {
     height: 144px;
+    font-size: 21px;
   }
 `;
 
@@ -59,7 +61,11 @@ const BannerButton = styled.button`
   height: 56px;
   border: 2px solid black;
 
-  font-size: 21px;
+  font-size: 27px;
+
+  @media (max-width: 768px) {
+    font-size: 21px;
+  }
 `;
 
 export default BottomBanner;

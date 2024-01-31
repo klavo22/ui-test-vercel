@@ -4,7 +4,7 @@ import Header from "../Header/Header";
 import ClosingBar from "./ClosingBar";
 import HeroCard from "./HeroCard";
 
-const Hero = () => {
+const Hero: React.FC = () => {
   return (
     <HeroContainer>
       <BackgroundImage src={heroImg} />

@@ -2,10 +2,9 @@ import styled from "styled-components";
 
 import { Ruling, UpdateVotesFunction } from "src/types";
 import { baseImgUrl } from "src/components/constants";
-import Voting from "../../Voting";
-import GaugeBar from "../../GaugeBar";
-import ThumbsUp from "src/assets/img/thumbsUp.svg?react";
-import ThumbsDown from "src/assets/img/thumbsDown.svg?react";
+import Voting from "../VoteSection";
+import GaugeBar from "../GaugeBar";
+import ResultThumb from "../ResultThumb";
 
 interface ListItemProps {
   ruling: Ruling;
@@ -13,19 +12,9 @@ interface ListItemProps {
 }
 
 const ListItem: React.FC<ListItemProps> = ({ ruling, updateVotes }) => {
-  const { positive, negative } = ruling.votes;
-
-  const averagePositive = positive - negative >= 0;
-
   return (
     <ItemWrapper $imageurl={ruling.picture}>
-      <ResultIconWrapper $positive={averagePositive}>
-        {averagePositive ? (
-          <ThumbsUp width="24px" height="24px" />
-        ) : (
-          <ThumbsDown width="24px" height="24px" />
-        )}
-      </ResultIconWrapper>
+      <ResultThumb votes={ruling.votes} big />
       <ItemData>
         <Name>{ruling.name}</Name>
         <Description>{ruling.description}</Description>
@@ -95,25 +84,6 @@ const Description = styled.p`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-`;
-
-interface ResultIconWrapperProps {
-  $positive?: boolean;
-}
-
-const ResultIconWrapper = styled.div<ResultIconWrapperProps>`
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 45px;
-  height: 45px;
-
-  background-color: ${({ $positive }) =>
-    $positive ? "rgba(60, 187, 180, 0.6)" : "rgba(249, 173, 29, 0.6)"};
 `;
 
 export default ListItem;
