@@ -112,8 +112,9 @@ const Option = styled.div<OptionProps>`
 const ArrowWrapper = styled.div`
   position: absolute;
   top: 50%;
-  transform: translateY(-150%);
   right: 15px;
+  transform: translateY(-150%);
+
   width: 12px;
   height: 7px;
 `;

@@ -15,3 +15,5 @@ export const footerLinks = [
 ];
 
 export const baseImgUrl = "src/assets/img/";
+
+export const baseCardImgUrl = "src/assets/img/card_img/";

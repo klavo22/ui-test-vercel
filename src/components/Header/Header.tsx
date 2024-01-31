@@ -34,6 +34,8 @@ const HeaderWrapper = styled.div`
     rgba(0, 0, 0, 0.698864) 0%,
     rgba(0, 0, 0, 0.0001) 100%
   );
+
+  z-index: 1000;
 `;
 
 const HeaderContent = styled.div`

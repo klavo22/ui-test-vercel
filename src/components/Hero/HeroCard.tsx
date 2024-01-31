@@ -6,7 +6,7 @@ import Wikipedia from "src/assets/img/wikipedia.svg?react";
 import ThumbsUp from "src/assets/img/thumbsUp.svg?react";
 import ThumbsDown from "src/assets/img/thumbsDown.svg?react";
 
-const HeroCard = () => {
+const HeroCard: React.FC = () => {
   return (
     <HeroCardWrapper>
       <MainLayout>
@@ -18,7 +18,7 @@ const HeroCard = () => {
             pervert protector? (thumbs down) or a true pedophile punishing
             pontiff? (thumbs up)
           </CardText>
-          <MoreInfo>
+          <MoreInfo href="https://en.wikipedia.org/wiki/Pope_Francis">
             <Wikipedia />
             <CardText>More information</CardText>
           </MoreInfo>
@@ -113,10 +113,16 @@ const CardTitle = styled.h2`
   }
 `;
 
-const MoreInfo = styled.div`
+const MoreInfo = styled.a`
   display: flex;
   gap: 10px;
   margin: 20px 0 15px 0;
+
+  text-decoration: none;
+
+  &:visited {
+    color: white;
+  }
 `;
 
 const ButtonsContainer = styled.div`

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Lens from "src/assets/img/lens.svg?react";
 import { menuOptions } from "src/components/constants";
 
-const NavBar = () => {
+const NavBar: React.FC = () => {
   return (
     <NavBarWrapper>
       {menuOptions.map((option, index) => (

@@ -4,7 +4,7 @@ import { footerLinks } from "./constants";
 import Facebook from "src/assets/img/facebook.svg?react";
 import Twitter from "src/assets/img/twitter.svg?react";
 
-const Footer = () => {
+const Footer: React.FC = () => {
   return (
     <FooterContainer>
       <FooterLinks>
@@ -53,6 +53,10 @@ const FooterLinks = styled.div`
 const FooterLink = styled.a`
   font-size: 18px;
   font-weight: 300;
+
+  @media (max-width: 660px) {
+    font-size: 15px;
+  }
 `;
 
 const SocialLinks = styled.div`

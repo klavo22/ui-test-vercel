@@ -4,34 +4,34 @@ import styled from "styled-components";
 import ThumbsUp from "src/assets/img/thumbsUp.svg?react";
 import ThumbsDown from "src/assets/img/thumbsDown.svg?react";
 
-interface ResultIconProps {
+interface ResultThumbProps {
   votes: Votes;
   big?: boolean;
 }
 
-const ResultIcon: React.FC<ResultIconProps> = ({ votes, big }) => {
+const ResultThumb: React.FC<ResultThumbProps> = ({ votes, big }) => {
   const { positive, negative } = votes;
 
   const averagePositive = positive - negative >= 0;
   const iconSize = big ? { width: 24, height: 24 } : { width: 16, height: 16 };
 
   return (
-    <ResultIconWrapper $positive={averagePositive} $big={big}>
+    <ResultThumbWrapper $positive={averagePositive} $big={big}>
       {averagePositive ? (
         <ThumbsUp {...iconSize} />
       ) : (
         <ThumbsDown {...iconSize} />
       )}
-    </ResultIconWrapper>
+    </ResultThumbWrapper>
   );
 };
 
-interface ResultIconWrapperProps {
+interface ResultThumbWrapperProps {
   $positive?: boolean;
   $big?: boolean;
 }
 
-const ResultIconWrapper = styled.div<ResultIconWrapperProps>`
+const ResultThumbWrapper = styled.div<ResultThumbWrapperProps>`
   position: ${({ $big }) => ($big ? "absolute" : "")};
   top: 0;
   left: 0;
@@ -46,4 +46,4 @@ const ResultIconWrapper = styled.div<ResultIconWrapperProps>`
     $positive ? "rgba(60, 187, 180, 0.6)" : "rgba(249, 173, 29, 0.6)"};
 `;
 
-export default ResultIcon;
+export default ResultThumb;

@@ -8,8 +8,8 @@ import { useRulings } from "src/hooks/useRulings";
 import GridView from "./GridView";
 import Carousel from "./Carousel";
 
-const MainSection = () => {
-  const [selected, setSelected] = useState<ViewMode>(ViewMode.Grid);
+const MainSection: React.FC = () => {
+  const [selected, setSelected] = useState<ViewMode>(ViewMode.List);
   const { rulings, updateVotes } = useRulings();
 
   return (
@@ -30,7 +30,7 @@ const MainSection = () => {
   );
 };
 
-const MainSectionWrapper = styled.div`
+const MainSectionWrapper = styled.section`
   width: 100%;
 `;
 

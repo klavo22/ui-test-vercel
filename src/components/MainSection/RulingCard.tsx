@@ -1,9 +1,9 @@
-import { baseImgUrl } from "src/components/constants";
+import { baseCardImgUrl } from "src/components/constants";
 import { Ruling, UpdateVotesFunction } from "src/types";
 import styled from "styled-components";
 import GaugeBar from "./GaugeBar";
-import Voting from "./Voting";
-import ResultIcon from "./ResultIcon";
+import Voting from "./VoteSection";
+import ResultThumb from "./ResultThumb";
 
 interface RulingCardProps {
   ruling: Ruling;
@@ -16,7 +16,7 @@ const RulingCard: React.FC<RulingCardProps> = ({ ruling, updateVotes }) => {
       <GradientLayer />
       <CardInfoWrapper>
         <TitleWrapper>
-          <ResultIcon votes={ruling.votes} />
+          <ResultThumb votes={ruling.votes} />
           <CardInfoTitle>{ruling.name}</CardInfoTitle>
         </TitleWrapper>
         <CardDescription>{ruling.description}</CardDescription>
@@ -43,8 +43,7 @@ const RulingCardContainer = styled.div<RulingCardContainerProps>`
   justify-content: flex-end;
   padding-bottom: 36px;
 
-  background-image: url(${({ $imageUrl }) =>
-    baseImgUrl + "card_img/" + $imageUrl});
+  background-image: url(${({ $imageUrl }) => baseCardImgUrl + $imageUrl});
   background-size: cover;
 `;
 
