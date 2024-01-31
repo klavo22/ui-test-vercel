@@ -14,6 +14,6 @@ export const footerLinks = [
   { title: "Contact Us" },
 ];
 
-export const baseImgUrl = "src/assets/img/";
+export const baseImgUrl = "/list_img/";
 
 export const baseCardImgUrl = "/card_img/";
